@@ -102,11 +102,11 @@ if [ ! -f "$conf"]; then
     "code": "$code",
     "circumferance": "-",
     "gear-ratio": "-",
-  'EOJ'
+  EOJ
 fi
 
 #node-red-flow
-rm -rf "$nodered"
-cat << 'EON' > "$nodered"
-  \
-  EON
+#rm -rf "$nodered"
+#cat << 'EON' > "$nodered"
+#  \
+#  EON
