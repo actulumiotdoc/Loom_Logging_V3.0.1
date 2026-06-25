@@ -133,7 +133,7 @@ if [ ! -f "$conf" ]; then
   touch "$conf"
   code=$(cat $HOME/loom/influxdb/device.txt)
   source_=$(cat $HOME/loom/source.txt)
-  cat << 'EOG' >> "$conf"
+  cat << EOG >> "$conf"
   {
     "code": "$code",
     "source": "$source_",
