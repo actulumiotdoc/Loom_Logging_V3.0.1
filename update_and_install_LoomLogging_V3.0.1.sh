@@ -7,6 +7,7 @@ conf=$user/telemetry/conf.json
 nodered=$user/.node-red/flows.json
 
 sudo apt update && sudo apt -y upgrade
+echo "[Device] npm install better-sqlite3..."
 npm install better-sqlite3 --prefix  ~/.node-red/
 
 if [ ! -d "$sqldir" ]; then
@@ -97,7 +98,6 @@ if [ ! -d "$sqldir" ]; then
   CREATE TABLE telemetry_could (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     create_at DATETIME DEFAULT (datetime('now', '+7 hours')),
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
     sent INTEGER DEFAULT 0,
     ts INTEGER NOT NULL,
     total_meter REAL,
@@ -132,15 +132,15 @@ fi
 if [ ! -f "$conf" ]; then
   touch "$conf"
   code=$(cat $HOME/loom/influxdb/device.txt)
-  source=$(cat $HOME/loom/source.txt)
+  source_=$(cat $HOME/loom/source.txt)
   cat << 'EOG' >> "$conf"
   {
     "code": "$code",
-    "source": "$source",
+    "source": "$source_",
     "circumferance": 0,
     "gear-ratio": 0
   }
-  EOG
+EOG
 fi
 
 
