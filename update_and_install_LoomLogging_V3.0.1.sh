@@ -27,9 +27,9 @@ if [ ! -d "$sqldir" ]; then
       ntb_meter REAL,
       ota_meter REAL,
       otb_meter REAL,
-      total_wking REAL,
-      wking_a REAL,
-      wking_b REAL,
+      total_work INTEGER,
+      work_a INTEGER,
+      work_b INTEGER,
       speed_main REAL,
       speed_take REAL
       );"
@@ -95,7 +95,7 @@ if [ ! -d "$sqldir" ]; then
   );"
 
   sqlite3 "$db" "
-  CREATE TABLE telemetry_could (
+  CREATE TABLE telemetry_cloud (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     create_at DATETIME DEFAULT (datetime('now', '+7 hours')),
     sent INTEGER DEFAULT 0,
@@ -107,7 +107,7 @@ if [ ! -d "$sqldir" ]; then
     ntb_meter REAL,
     ota_meter REAL,
     otb_meter REAL,
-    total_work REAL,
+    total_work INTEGER,
     work_a INTEGER,
     work_b INTEGER,
     hour_meter REAL,
